@@ -1,0 +1,69 @@
+---
+// Encabezado fijo estilo Beyond: logo + navegación por anclas + menú hamburguesa.
+// El logo tiene fondo negro, por eso el encabezado es turquesa oscuro.
+import { BASE as base } from "../lib/base";
+---
+
+<header class="sticky top-0 z-50 bg-brand-deep shadow-lg">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+    <a href="#inicio" class="flex items-center gap-3">
+      <img
+        src={`${base}images/logo-viajero-maya.png`}
+        alt="Logo de Viajero Maya"
+        class="h-11 w-11 rounded-full object-cover ring-2 ring-white/40"
+      />
+      <span class="font-display text-2xl font-bold tracking-wide text-white">
+        Viajero Maya
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-7 font-medium text-white/90 md:flex">
+      <a href="#inicio" class="transition-colors hover:text-white">Inicio</a>
+      <a href="#tours" class="transition-colors hover:text-white">Tours</a>
+      <a href="#incluye" class="transition-colors hover:text-white">¿Qué incluye?</a>
+      <a href="#transporte" class="transition-colors hover:text-white">Transporte</a>
+      <a href="#contacto" class="transition-colors hover:text-white">Contacto</a>
+      <a
+        href="#tours"
+        class="rounded-full bg-accent px-5 py-2 font-bold text-white transition-colors hover:bg-accent-dark"
+      >
+        Ver tours
+      </a>
+    </nav>
+
+    <button
+      id="menu-btn"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      class="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-md border border-white/30 md:hidden"
+    >
+      <span class="block h-0.5 w-6 bg-white"></span>
+      <span class="block h-0.5 w-6 bg-white"></span>
+      <span class="block h-0.5 w-6 bg-white"></span>
+    </button>
+  </div>
+
+  <nav id="menu-movil" class="hidden border-t border-white/15 px-4 pb-4 pt-2 md:hidden">
+    <a href="#inicio" class="block py-2.5 font-medium text-white">Inicio</a>
+    <a href="#tours" class="block py-2.5 font-medium text-white">Tours</a>
+    <a href="#incluye" class="block py-2.5 font-medium text-white">¿Qué incluye?</a>
+    <a href="#transporte" class="block py-2.5 font-medium text-white">Transporte</a>
+    <a href="#contacto" class="block py-2.5 font-medium text-white">Contacto</a>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu-movil");
+  btn?.addEventListener("click", () => {
+    const abierto = menu?.classList.toggle("hidden") === false;
+    btn.setAttribute("aria-expanded", String(abierto));
+  });
+  menu?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      menu.classList.add("hidden");
+      btn?.setAttribute("aria-expanded", "false");
+    })
+  );
+</script>

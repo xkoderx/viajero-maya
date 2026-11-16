@@ -1,0 +1,98 @@
+---
+// B'IINEEL Transportadora Turística: renta de autotransporte (p. 11 del catálogo).
+import { TRANSPORTE } from "../data/tours";
+
+import { BASE as base } from "../lib/base";
+---
+
+<section id="transporte" class="bg-brand-deep py-16 text-white md:py-20">
+  <div class="mx-auto max-w-7xl px-4 md:px-6">
+    <div class="mx-auto mb-12 max-w-2xl text-center" data-aos="fade-up">
+      <p class="text-sm font-bold uppercase tracking-widest text-amber-300">Transportadora Turística</p>
+      <h2 class="mt-2 font-display text-4xl font-bold md:text-5xl">{TRANSPORTE.nombre}</h2>
+      <p class="mt-3 font-display text-2xl italic text-white/80">{TRANSPORTE.titulo}</p>
+      <p class="mt-4 text-lg text-white/80">{TRANSPORTE.subtitulo}</p>
+    </div>
+
+    <div class="grid items-start gap-10 lg:grid-cols-2">
+      <div data-aos="fade-right">
+        <ul class="space-y-4">
+          {
+            TRANSPORTE.caracteristicas.map((item) => (
+              <li class="flex items-start gap-3 rounded-xl bg-white/10 px-5 py-4 text-lg">
+                <svg class="mt-1 h-5 w-5 shrink-0 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-8 rounded-2xl bg-white p-6 text-ink shadow-md">
+          <h3 class="font-display text-xl font-bold">Contacto</h3>
+          <p class="mt-1 text-lg font-bold text-brand-dark">{TRANSPORTE.contacto}</p>
+          <p class="mt-3 space-y-1 text-smoke">
+            {
+              TRANSPORTE.emails.map((email) => (
+                <span class="block">
+                  Correo:{" "}
+                  <a href={`mailto:${email}`} class="text-brand-dark hover:underline">
+                    {email}
+                  </a>
+                </span>
+              ))
+            }
+            <span class="block">
+              Teléfonos:{" "}
+              {TRANSPORTE.telefonos.map((tel, i) => (
+                <span>
+                  <a href={`tel:${tel.replace(/-/g, "")}`} class="text-brand-dark hover:underline">
+                    {tel}
+                  </a>
+                  {i < TRANSPORTE.telefonos.length - 1 ? " / " : ""}
+                </span>
+              ))}
+            </span>
+            <span class="block">
+              Web:{" "}
+              <a href={`https://${TRANSPORTE.web}`} class="text-brand-dark hover:underline">
+                {TRANSPORTE.web}
+              </a>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2" data-aos="fade-left">
+        <figure class="overflow-hidden rounded-2xl bg-white shadow-md">
+          <img
+            src={`${base}images/transporte-auto-rojo.jpg`}
+            alt="Automóvil rojo de la flotilla B'IINEEL"
+            loading="lazy"
+            class="aspect-square w-full object-cover"
+          />
+          <figcaption class="px-4 py-3 text-center text-sm font-bold text-ink">Automóvil</figcaption>
+        </figure>
+        <figure class="overflow-hidden rounded-2xl bg-white shadow-md">
+          <img
+            src={`${base}images/transporte-van-blanca.jpg`}
+            alt="Van blanca de la flotilla B'IINEEL"
+            loading="lazy"
+            class="aspect-square w-full object-cover"
+          />
+          <figcaption class="px-4 py-3 text-center text-sm font-bold text-ink">Van</figcaption>
+        </figure>
+        <figure class="overflow-hidden rounded-2xl bg-white shadow-md sm:col-span-2">
+          <img
+            src={`${base}images/transporte-van-plateada.jpg`}
+            alt="Van plateada de la flotilla B'IINEEL"
+            loading="lazy"
+            class="mx-auto h-28 w-auto object-contain p-2"
+          />
+          <figcaption class="px-4 pb-3 text-center text-sm font-bold text-ink">Van para grupos</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

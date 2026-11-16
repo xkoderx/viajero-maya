@@ -1,0 +1,102 @@
+---
+// Tarjetas de los 5 tour-circuitos (estilo Beyond: foto, precio destacado,
+// hover) + galería de fotos de los destinos.
+import { TOURS, GALERIA, INCLUYE, PRECIO, PRECIO_DETALLE, MINIMO } from "../data/tours";
+
+import { BASE as base } from "../lib/base";
+---
+
+<section id="tours" class="bg-white py-16 md:py-20">
+  <div class="mx-auto max-w-7xl px-4 md:px-6">
+    <div class="mx-auto mb-12 max-w-2xl text-center" data-aos="fade-up">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent">Tour - Circuito</p>
+      <h2 class="mt-2 font-display text-4xl font-bold text-ink md:text-5xl">Nuestros tours</h2>
+      <p class="mt-4 text-lg text-smoke">
+        Cinco destinos de México, todos con el mismo precio y lo mismo incluido:
+        <strong class="text-ink">{PRECIO} {PRECIO_DETALLE}</strong>, {MINIMO.toLowerCase()}.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        TOURS.map((tour, i) => (
+          <article
+            class="group overflow-hidden rounded-2xl bg-sand shadow-md transition-all hover:-translate-y-1 hover:shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay={i * 80}
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src={`${base}${tour.foto}`}
+                alt={tour.fotoAlt}
+                loading="lazy"
+                class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute right-4 top-4 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-white shadow">
+                {PRECIO} <span class="font-normal">/ persona</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-bold uppercase tracking-widest text-brand-dark">
+                Tour - Circuito
+              </p>
+              <h3 class="mt-1 font-display text-2xl font-bold text-ink">{tour.nombre}</h3>
+              {tour.tagline && (
+                <p class="mt-1 font-display text-base italic text-smoke">{tour.tagline}</p>
+              )}
+              <p class="mt-3 text-sm font-medium text-smoke">{MINIMO}</p>
+              <ul class="mt-4 space-y-2 border-t border-sand-dark pt-4">
+                {INCLUYE.map((item) => (
+                  <li class="flex items-start gap-2 text-sm text-ink">
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-brand"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contacto"
+                class="mt-6 block rounded-full bg-brand py-2.5 text-center font-bold text-white transition-colors hover:bg-brand-dark"
+              >
+                Más información
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Galería de fotos de los destinos -->
+    <div class="mt-16" data-aos="fade-up">
+      <h3 class="text-center font-display text-3xl font-bold text-ink">Fotos de los destinos</h3>
+      <p class="mt-2 text-center text-smoke">Imágenes del catálogo de Viajero Maya.</p>
+      <div class="mt-8 columns-2 gap-4 md:columns-3 lg:columns-4 [&>*]:mb-4">
+        {
+          GALERIA.map((foto) => (
+            <figure class="group relative overflow-hidden rounded-xl break-inside-avoid shadow-md">
+              <img
+                src={`${base}${foto.archivo}`}
+                alt={foto.alt}
+                loading="lazy"
+                class="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-3 pb-2 pt-8 text-sm font-bold text-white">
+                {foto.tour}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

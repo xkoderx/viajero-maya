@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+images/pdf/
+thumbs/
+template-src/
+template-beyond.zip
+.DS_Store

@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta del catálogo de Viajero Maya: turquesa, arena y naranja */
+  --color-brand: #0d9488;
+  --color-brand-dark: #0f766e;
+  --color-brand-deep: #134e4a;
+  --color-accent: #f97316;
+  --color-accent-dark: #ea580c;
+  --color-sand: #faf6ee;
+  --color-sand-dark: #f1e9d8;
+  --color-ink: #222222;
+  --color-smoke: #777777;
+
+  /* Tipografías de la plantilla Beyond: Playfair Display + Roboto */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Roboto", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-sand);
+  color: var(--color-ink);
+}

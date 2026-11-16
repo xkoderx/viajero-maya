@@ -1,0 +1,67 @@
+---
+// ¿Qué incluye? + Amenidades: las dos listas del catálogo, iguales en los 5 tours.
+import { INCLUYE, AMENIDADES } from "../data/tours";
+---
+
+<section id="incluye" class="bg-sand py-16 md:py-20">
+  <div class="mx-auto max-w-7xl px-4 md:px-6">
+    <div class="mx-auto mb-12 max-w-2xl text-center" data-aos="fade-up">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent">En todos los tours</p>
+      <h2 class="mt-2 font-display text-4xl font-bold text-ink md:text-5xl">¿Qué incluye?</h2>
+      <p class="mt-4 text-lg text-smoke">
+        Cada tour-circuito incluye lo mismo, sin sorpresas.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div class="rounded-2xl bg-white p-8 shadow-md" data-aos="fade-up">
+        <div class="flex items-center gap-4">
+          <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 6v6" /><path d="M15 6v6" /><path d="M2 12h19.6" />
+              <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+              <circle cx="7" cy="18" r="2" /><path d="M9 18h5" /><circle cx="16" cy="18" r="2" />
+            </svg>
+          </span>
+          <h3 class="font-display text-2xl font-bold text-ink">¿Qué incluye?</h3>
+        </div>
+        <ul class="mt-6 space-y-4">
+          {
+            INCLUYE.map((item) => (
+              <li class="flex items-start gap-3 text-lg text-ink">
+                <svg class="mt-1 h-5 w-5 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="rounded-2xl bg-brand-deep p-8 text-white shadow-md" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center gap-4">
+          <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </span>
+          <h3 class="font-display text-2xl font-bold">Amenidades</h3>
+        </div>
+        <ul class="mt-6 space-y-4">
+          {
+            AMENIDADES.map((item) => (
+              <li class="flex items-start gap-3 text-lg">
+                <svg class="mt-1 h-5 w-5 shrink-0 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

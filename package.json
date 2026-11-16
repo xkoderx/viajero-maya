@@ -1,0 +1,1 @@
+{"dependencies":{"@tailwindcss/vite":"^4.1.14","aos":"^2.3.4","astro":"^5.14.5","tailwindcss":"^4.1.14"},"name":"viajero-maya","scripts":{"astro":"astro","build":"astro build","dev":"astro dev","preview":"astro preview"},"type":"module","version":"0.0.1"}

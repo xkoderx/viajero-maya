@@ -1,0 +1,61 @@
+---
+// Hero dividido estilo Beyond: texto a la izquierda, foto a la derecha,
+// con el precio del tour como insignia sobre la foto.
+import { PRECIO, PRECIO_DETALLE, MINIMO } from "../data/tours";
+
+import { BASE as base } from "../lib/base";
+---
+
+<section id="inicio" class="bg-sand">
+  <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 md:px-6 lg:grid-cols-2 lg:py-20">
+    <div data-aos="fade-right">
+      <p class="inline-block rounded-full bg-brand/10 px-4 py-1 text-sm font-bold uppercase tracking-widest text-brand-dark">
+        Agencia de tours
+      </p>
+      <h1 class="mt-5 font-display text-5xl font-bold leading-[1.1] text-ink md:text-6xl">
+        Viajero Maya
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-smoke md:text-xl">
+        Tour-circuitos por <strong class="text-ink">Chiapas</strong>,
+        <strong class="text-ink">Campeche</strong>,
+        <strong class="text-ink">Ciudad de México</strong>,
+        <strong class="text-ink">Oaxaca</strong> y
+        <strong class="text-ink">Veracruz</strong>.
+      </p>
+      <p class="mt-3 text-base leading-relaxed text-smoke">
+        Transporte de lujo, comida tipo buffete y entrada a zonas
+        arqueológicas en todos nuestros tours.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href="#tours"
+          class="rounded-full bg-accent px-7 py-3 font-bold text-white shadow-md transition-colors hover:bg-accent-dark"
+        >
+          Ver los tours
+        </a>
+        <a
+          href="#contacto"
+          class="rounded-full border-2 border-brand-dark px-7 py-3 font-bold text-brand-dark transition-colors hover:bg-brand-dark hover:text-white"
+        >
+          Contactar
+        </a>
+      </div>
+      <p class="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-brand-dark shadow-sm">
+        <span class="font-display text-2xl text-accent">{PRECIO}</span>
+        {PRECIO_DETALLE} · {MINIMO}
+      </p>
+    </div>
+
+    <div class="relative" data-aos="fade-left">
+      <img
+        src={`${base}images/hero-palenque.jpg`}
+        alt="Ruinas de Palenque, Chiapas"
+        class="h-[320px] w-full rounded-2xl object-cover shadow-xl sm:h-[420px] lg:h-[520px]"
+      />
+      <div class="absolute bottom-4 left-4 rounded-xl bg-brand-deep/90 px-5 py-3 text-white shadow-lg">
+        <p class="font-display text-lg font-bold leading-tight">Palenque, Chiapas</p>
+        <p class="text-sm text-white/80">Tour-Circuito Chiapas Mágico</p>
+      </div>
+    </div>
+  </div>
+</section>

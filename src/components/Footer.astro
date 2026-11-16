@@ -1,0 +1,60 @@
+---
+// Pie de página: datos de contacto repetidos + crédito de la plantilla.
+import { CONTACTO } from "../data/tours";
+
+import { BASE as base } from "../lib/base";
+---
+
+<footer class="bg-brand-deep text-white">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-3 md:px-6">
+    <div>
+      <a href="#inicio" class="flex items-center gap-3">
+        <img
+          src={`${base}images/logo-viajero-maya.png`}
+          alt="Logo de Viajero Maya"
+          class="h-11 w-11 rounded-full object-cover ring-2 ring-white/40"
+        />
+        <span class="font-display text-2xl font-bold">Viajero Maya</span>
+      </a>
+      <p class="mt-4 text-white/70">
+        Tour-circuitos por Chiapas, Campeche, Ciudad de México, Oaxaca y
+        Veracruz. $500 por persona, mínimo 4 personas.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-display text-lg font-bold">Tours</h3>
+      <ul class="mt-4 space-y-2 text-white/70">
+        <li><a href="#tours" class="hover:text-white">Chiapas Mágico</a></li>
+        <li><a href="#tours" class="hover:text-white">Campeche</a></li>
+        <li><a href="#tours" class="hover:text-white">Ciudad de México</a></li>
+        <li><a href="#tours" class="hover:text-white">Oaxaca</a></li>
+        <li><a href="#tours" class="hover:text-white">Veracruz</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-display text-lg font-bold">Contacto</h3>
+      <ul class="mt-4 space-y-2 text-white/70">
+        <li>
+          <a href={`mailto:${CONTACTO.email}`} class="hover:text-white">{CONTACTO.email}</a>
+        </li>
+        <li>Oficina: {CONTACTO.oficina}</li>
+        <li>Móvil: {CONTACTO.movil}</li>
+        <li>
+          <a href={`https://${CONTACTO.web}`} class="hover:text-white">{CONTACTO.web}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/15">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-center text-sm text-white/60 md:flex-row md:px-6 md:text-left">
+      <p>© 2026 Viajero Maya. Todos los derechos reservados.</p>
+      <p>
+        Diseño basado en la plantilla gratuita Beyond de
+        <a href="https://themewagon.com/themes/free-html5-bootstrap-4-travel-agency-website-template-beyond/" class="underline hover:text-white">ThemeWagon</a>.
+      </p>
+    </div>
+  </div>
+</footer>
